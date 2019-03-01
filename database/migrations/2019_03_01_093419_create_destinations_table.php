@@ -13,10 +13,14 @@ class CreateDestinationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('destinations', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
-        });
+        // Schema::create('destinations', function (Blueprint $table) {
+        //     $table->increments('id');
+        //     $table->timestamps();
+        // });
+        // Schema::table('destinations', function($table){
+        //     $table->string('name');
+        // });
+
     }
 
     /**
@@ -26,6 +30,9 @@ class CreateDestinationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('destinations');
+        // Schema::dropIfExists('destinations');
+        // Schema::table('destinations', function($table){
+        //     $table->dropColumn('name');
+        // });
     }
 }
