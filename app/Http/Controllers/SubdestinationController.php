@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Destination;
+use App\Subdestination;
 use Illuminate\Http\Request;
 
-class DestinationController extends Controller
+class SubdestinationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class DestinationController extends Controller
      */
     public function index()
     {
-        $destinations = Destination::all();
-        return view('destinations', compact('destinations'));
+        //
     }
 
     /**
@@ -23,28 +22,28 @@ class DestinationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-
+        //
     }
 
     protected function storeValidator($data)
     {
         $data->validate([
-            'destination_name' => 'required|unique:destinations,name|string' 
+            'subdestination_name' => 'required|unique:subdestinations,subdestination_name|string' 
         ]);
         
     }
 
     protected function storeAction($data)
     {
-        Destination::insert([
+        Subdestination::insert([
+            'destination_id' => $data->subdestination,
+            'subdestination_name'=>$data->subdestination_name,
             'created_at'=>now(),
             'updated_at'=>now(),
-            'name'=>$data->destination_name,
         ]);
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -60,16 +59,16 @@ class DestinationController extends Controller
             return redirect()->back()->withInput($request->input());
         }
         $this->storeAction($request);
-        return redirect()->back();        
+        return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Destination  $destination
+     * @param  \App\Subdestination  $subdestination
      * @return \Illuminate\Http\Response
      */
-    public function show(Destination $destination)
+    public function show(Subdestination $subdestination)
     {
         //
     }
@@ -77,10 +76,10 @@ class DestinationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Destination  $destination
+     * @param  \App\Subdestination  $subdestination
      * @return \Illuminate\Http\Response
      */
-    public function edit(Destination $destination)
+    public function edit(Subdestination $subdestination)
     {
         //
     }
@@ -89,10 +88,10 @@ class DestinationController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Destination  $destination
+     * @param  \App\Subdestination  $subdestination
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Destination $destination)
+    public function update(Request $request, Subdestination $subdestination)
     {
         //
     }
@@ -100,10 +99,10 @@ class DestinationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Destination  $destination
+     * @param  \App\Subdestination  $subdestination
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Destination $destination)
+    public function destroy(Subdestination $subdestination)
     {
         //
     }

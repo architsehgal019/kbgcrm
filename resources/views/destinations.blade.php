@@ -3,7 +3,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<h3>Add Destination</h3>
+				<h3 class="text-uppercase">Add Destination</h3>
 				<form method="post" action="/destination/add">
 					<div class="input-group mb-3 mt-3">
 						<input type="text" class="form-control" name="destination_name" placeholder="Add Destination name" aria-label="destination_name" aria-describedby="basic-addon2">
@@ -12,6 +12,31 @@
 						    <button class="btn btn-outline-secondary" type="submit">Add</button>
 						 </div>
 					</div>
+				</form>
+			</div>
+			<div class="col-12 mt-4">
+				<hr class="mt-4">
+				<h3 class="mt-4 text-uppercase">Add Subdestination </h3>
+				<form method="post" action="/destination/subplaces">
+					<label class="mt-4">Choose Destination</label>
+					<select class="form-control" name = "subdestination" id="subdestination">
+							<option value="0">Choose</option>
+							@forelse($destinations as $destination)
+								<option value="{{$destination->id}}">{{$destination->name}}</option>
+								@empty{{''}}
+							@endforelse
+					</select>
+					<label class="mt-4">Add subdestination name</label>
+					<div class="input-group mb-3 mt-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text">
+								<i class="fas fa-plus"></i>
+							</span>
+						</div>
+						<input type="text" name="subdestination_name" id="subdestination_name" class="form-control" aria-label="Subdestination" placeholder="Subdestination name">
+					</div>
+					{{csrf_field()}}
+					<button type="submit" class="btn btn-outline-secondary mt-4" id="btn_add">Add</button>
 				</form>
 			</div>
 		</div>
