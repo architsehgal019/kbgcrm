@@ -14,7 +14,7 @@ class DestinationController extends Controller
      */
     public function index()
     {
-        //
+        return view('destinations');
     }
 
     /**
@@ -22,9 +22,26 @@ class DestinationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+
+    }
+
+    protected function storeValidator($data)
+    {
+        $data->validate([
+            'destination_name' => 'required|unique:destinations,name|string' 
+        ]);
+        
+    }
+
+    protected function storeAction($data)
+    {
+        Destination::insert([
+            'created_at'=>now(),
+            'updated_at'=>now(),
+            'name'=>$data->destination_name,
+        ]);
     }
 
     /**
@@ -35,7 +52,14 @@ class DestinationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $invalid = $this->storeValidator($request);
+        if(!empty($invalid))
+        {
+            $request->session()->flash('flashFailure', $invalid);
+            return redirect()->back()->withInput($request->input());
+        }
+        $this->storeAction($request);
+        return redirect()->back();        
     }
 
     /**
