@@ -81,7 +81,7 @@
                                 <span>General</span>
                             </li>
                             <li class="sidebar-dropdown">
-                                <a href="/add-category">Destination</a>   
+                                <a href="/destination">Destination</a>   
                             </li>
                             <li class="sidebar-dropdown">
                                 <a href="/category/add-subcategory">Subcategory</a>
