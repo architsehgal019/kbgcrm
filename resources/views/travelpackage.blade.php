@@ -5,7 +5,7 @@
 			<div class="col-12">
 				<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 			  		<li class="nav-item">
-			    		<a class="nav-link active" id="pills-general-tab" data-toggle="pill" href="#pills-general" role="tab" aria-controls="pills-general" aria-selected="true">General</a>
+			    		<a class="nav-link active show" id="pills-general-tab" data-toggle="pill" href="#pills-general" role="tab" aria-controls="pills-general" aria-selected="true">General</a>
 			  		</li>
 					<li class="nav-item">
 						<a class="nav-link" id="pills-inclusion-tab" data-toggle="pill" href="#pills-inclusion" role="tab" aria-controls="pills-inclusion" aria-selected="false">Inclusion</a>
@@ -21,11 +21,11 @@
 		</div>
 	</div>
 	<div class="tab-content" id="pills-tabContent">
-	  	<div class="tab-pane fade show active" id="pills-general" role="tabpanel" aria-labelledby="pills-general-tab">
+		<h3>ADD TRAVEL PACKAGES</h3>
+	  	<div class="tab-pane fade show active in" id="pills-general" role="tabpanel" aria-labelledby="pills-general-tab">
 	  		<div class="container">
 	  			<div class="row">
 	  				<div class="col-12">
-	  					<h3>ADD TRAVEL PACKAGES</h3>
 	  					<label class="mt-4">Choose Destination</label>
 	  					<select class="form-control w-50" name = "destination" id="destination">
 							<option value="0">Choose</option>
@@ -65,8 +65,42 @@
 	  			</div>
 	  		</div>
 	  	</div>
-	  	<div class="tab-pane fade" id="pills-inclusion" role="tabpanel" aria-labelledby="pills-inclusion-tab">Inclusion</div>
-	  	<div class="tab-pane fade" id="pills-exclusion" role="tabpanel" aria-labelledby="pills-exclusion-tab">Exclusion</div>
+	  	<div class="tab-pane fade" id="pills-inclusion" role="tabpanel" aria-labelledby="pills-inclusion-tab">
+	  		<div class="container">
+	  			<div class="row">
+	  				<div class="col-12">
+	  					<label class="mt-3">Inclusion details</label>
+						<textarea class="form-control" rows="20" placeholder="Inclusion" id="ckeditor-1" name="inclusion"></textarea>
+	  				</div>
+	  			</div>
+	  		</div>
+	  	</div>
+	  	<div class="tab-pane fade" id="pills-exclusion" role="tabpanel" aria-labelledby="pills-exclusion-tab">
+	  		<div class="container">
+	  			<div class="row">
+	  				<div class="col-12">
+				  		<label class="mt-3">Exclusion details</label>
+						<textarea class="form-control" rows="20" placeholder="Exclusion" id="ckeditor-2" name="exclusion"></textarea>			
+	  				</div>
+	  			</div>
+	  		</div>
+	  	</div>
 	  	<div class="tab-pane fade" id="pills-hotels" role="tabpanel" aria-labelledby="pills-hotels-tab">Hotels</div>
 	</div>
+@endsection
+@section('extra-js')
+	<script src="https://cdn.ckeditor.com/ckeditor5/10.0.0/classic/ckeditor.js"></script>
+		<script type="text/javascript">
+			ClassicEditor
+		        .create( document.querySelector( '#ckeditor-1' ) )
+		        .catch( error => {
+		            console.error( error );
+		        } );
+
+		   	ClassicEditor
+		        .create( document.querySelector( '#ckeditor-2' ) )
+		        .catch( error => {
+		            console.error( error );
+		        } );
+		</script>
 @endsection
