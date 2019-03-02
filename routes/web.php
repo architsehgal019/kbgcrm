@@ -23,3 +23,5 @@ Route::get('/destination', 'DestinationController@index');
 Route::post('/destination/add', 'DestinationController@store');
 
 Route::post('/destination/subplaces', 'SubdestinationController@store');
+
+Route::get('/travelpackages', 'TravelpackageController@index');

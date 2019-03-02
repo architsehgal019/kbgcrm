@@ -84,7 +84,7 @@
                                 <a href="/destination">Destination</a>   
                             </li>
                             <li class="sidebar-dropdown">
-                                <a href="/category/add-subcategory">Subcategory</a>
+                                <a href="/travelpackages">Travel Packages</a>
                             </li>
                             <li class="header-menu"> 
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
