@@ -5,13 +5,13 @@
 			<div class="col-12">
 				<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 			  		<li class="nav-item">
-			    		<a class="nav-link active show" id="pills-general-tab" data-toggle="pill" href="#pills-general" role="tab" aria-controls="pills-general" aria-selected="true">General</a>
+			    		<a class="nav-link active show" id="pills-general-tab" data-toggle="pill" href="#pills-general" role="tab" aria-controls="pills-general" aria-selected="true">Itinerary</a>
 			  		</li>
 					<li class="nav-item">
-						<a class="nav-link" id="pills-inclusion-tab" data-toggle="pill" href="#pills-inclusion" role="tab" aria-controls="pills-inclusion" aria-selected="false">Inclusion</a>
+						<a class="nav-link" id="pills-inclusion-tab" data-toggle="pill" href="#pills-inclusion" role="tab" aria-controls="pills-inclusion" aria-selected="false">Inclusions</a>
 					</li>
 					<li class="nav-item">
-					    <a class="nav-link" id="pills-exclusion-tab" data-toggle="pill" href="#pills-exclusion" role="tab" aria-controls="pills-exclusion" aria-selected="false">Exclusion</a>
+					    <a class="nav-link" id="pills-exclusion-tab" data-toggle="pill" href="#pills-exclusion" role="tab" aria-controls="pills-exclusion" aria-selected="false">Exclusions</a>
 					</li>
 					<li class="nav-item">
 					    <a class="nav-link" id="pills-hotels-tab" data-toggle="pill" href="#pills-hotels" role="tab" aria-controls="pills-hotels" aria-selected="false">Hotels</a>
@@ -51,7 +51,12 @@
 						<div class="row">
 							<div class="col-6">
 								Days
-								<input type="number" name="days" class="form-control" placeholder="Days count" min="0">		
+								<select class="form-control w-50" name="days" id="days">
+									<option value="0">Choose</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+								</select>		
 							</div>
 							<div class="col-6">
 								Nights
@@ -61,6 +66,12 @@
 
 						<label class="mt-4">Price</label>
 						<input type="number" name="price" class="form-control w-50" placeholder="Price (Starting @)" min="0">
+
+						<div class="row">
+							<div class="col-12" id="duration_description">
+
+							</div>
+						</div>
 	  				</div>
 	  			</div>
 	  		</div>
@@ -102,5 +113,17 @@
 		        .catch( error => {
 		            console.error( error );
 		        } );
+
+
+		    $('#days').change(function(){
+		    		$('#duration_description').empty();
+		    		var i = $('#days').val();
+		    		for(var n = 1; n<=i; n++)
+			    	{	
+			    		$('#duration_description').append('<label class="mt-3">Day '+n+'</label>');
+			    		$('#duration_description').append('<input type="text" class="form-control" id = day"'+n+'" placeholder="Itinerary Title" name="day'+n+'">');
+			    		$('#duration_description').append('<textarea class="form-control mt-2" rows="10" placeholder="Itinerary Description" id="ckeditor-'+n+'" name="daydesc'+n+'"></textarea>');
+			    	}
+		    });
 		</script>
 @endsection
