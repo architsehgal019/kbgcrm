@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Destination;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+use Auth;
+use DateTime;
 
 class DestinationController extends Controller
 {
@@ -38,7 +43,12 @@ class DestinationController extends Controller
 
     protected function storeAction($data)
     {
+        $cover = $data->file('bannerimg_url');
+        $extension = $cover->getClientOriginalExtension();
+        Storage::disk('public')->put($cover->getFilename().'.'.$extension, File::get($cover));
+
         Destination::insert([
+            'bannerimg' => $cover->getFilename().'.'.$extension,
             'created_at'=>now(),
             'updated_at'=>now(),
             'name'=>$data->destination_name,

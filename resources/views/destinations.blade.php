@@ -4,14 +4,20 @@
 		<div class="row">
 			<div class="col-12">
 				<h3 class="text-uppercase">Add Destination</h3>
-				<form method="post" action="/destination/add">
+				<form method="post" action="/destination/add" enctype="multipart/form-data">
 					<div class="input-group mb-3 mt-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text">
+								<i class="fas fa-plus"></i>
+							</span>
+						</div>
 						<input type="text" class="form-control" name="destination_name" placeholder="Add Destination name" aria-label="destination_name" aria-describedby="basic-addon2">
-						<div class="input-group-append">
-							{{csrf_field()}}
-						    <button class="btn btn-outline-secondary" type="submit">Add</button>
-						 </div>
 					</div>
+					<label class="mt-4">Choose Destination</label>
+					<input type="file" name="bannerimg_url" class="show-preview" accept="image/*" data-target="#banner_img" value="">
+
+					{{csrf_field()}}
+					<button class="btn btn-outline-secondary mt-4" type="submit">Add</button>
 				</form>
 			</div>
 			<div class="col-12 mt-4">
