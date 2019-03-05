@@ -86,6 +86,9 @@
                             <li class="sidebar-dropdown">
                                 <a href="/travelpackages">Travel Packages</a>
                             </li>
+                            <li class="sidebar-dropdown">
+                                <a href="/testimonial">Testimonial</a>
+                            </li>
                             <li class="header-menu"> 
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         Logout

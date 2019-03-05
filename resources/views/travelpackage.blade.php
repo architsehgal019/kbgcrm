@@ -103,7 +103,30 @@
 		  			</div>
 		  		</div>
 		  	</div>
-		  	<div class="tab-pane fade" id="pills-hotels" role="tabpanel" aria-labelledby="pills-hotels-tab">Hotels</div>
+		  	<div class="tab-pane fade" id="pills-hotels" role="tabpanel" aria-labelledby="pills-hotels-tab">
+		  		<div class="container">
+		  			<div class="row">
+		  				<div class="col-12">
+		  					<div id = "hotel">
+			  					<label style="margin-top:5%;">Choose Hotel Category</label>
+			  					<select class="form-control w-50" id="hoteltype1" name="hoteltype1">
+			  						<option value="0">Choose</option>
+			  						<option value="deluxe">Deluxe</option>
+			  						<option value="luxury">Luxury</option>
+			  						<option value="premium">Premium</option>
+			  						<option value="standard">Standard</option>
+			  					</select>
+			  					<label class="mt-3">Hotel Name</label>
+			  					<input type="text" name="hotelname1" id="hotelname1" class="form-control w-50" aria-label="hotel name" placeholder="Hotel Name">
+			  					<label class="mt-3">Place</label>
+			  					<input type="text" name="hoteladdress1" id = "hoteladdress1" class="form-control w-50" aria-label="Hotel Address" placeholder="Hotel Address">
+			  				</div>
+			  				<a href="#" id="addhotel" class="float-right mt-4 btn btn-outline-primary">Add more</a>
+			  				<input type="hidden" name="hotelcount" id="hotelcount" value="1">
+		  				</div>
+		  			</div>
+		  		</div>
+		  	</div>
 		  	{{csrf_field()}}
 			<button class="btn btn-outline-secondary mt-4" type="submit">Save Package</button>
 		</div>
@@ -136,6 +159,21 @@
 			    		$('#duration_description').append('<input type="text" class="form-control" id = day"'+n+'" placeholder="Itinerary Title" name="day'+n+'">');
 			    		$('#duration_description').append('<textarea class="form-control mt-2" rows="10" placeholder="Itinerary Description" id="ckeditor-'+n+'" name="daydesc'+n+'"></textarea>');
 			    	}
+		    });
+
+		    $('#addhotel').click(function(){
+		    	var count = $('#hotelcount').val();
+		    	count = parseInt(count)+1;
+		    	$('#hotelcount').val(count);
+
+		    	$('#hotel').append('<label style="margin-top:5%;">Choose Hotel Category</label>');
+		    	$('#hotel').append('<select class="form-control w-50" id="hoteltype'+count+'" name="hoteltype'+count+'"><option value="0">Choose</option><option value="deluxe">Deluxe</option><option value="premium">Premium</option><option value="standard">Standard</option></select>');
+
+		    	$('#hotel').append('<label class="mt-3">Hotel Name</label>');
+		    	$('#hotel').append('<input type="text" name="hotelname'+count+'" id="hotelname'+count+'" class="form-control w-50" aria-label="hotel name" placeholder="Hotel Name">');
+
+		    	$('#hotel').append('<label class="mt-3">Place</label>');
+		    	$('#hotel').append('<input type="text" name="hoteladdress'+count+'" id = "hoteladdress'+count+'" class="form-control w-50" aria-label="Hotel Address" placeholder="Hotel Address">');
 		    });
 		</script>
 @endsection

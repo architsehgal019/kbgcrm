@@ -91,6 +91,21 @@ class TravelpackageController extends Controller
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+
+        for($j=1; $j<=$data->hotelcount; $j++)
+        {
+            $type = "hoteltype".$j;
+            $name = "hotelname".$j;
+            $address = "hoteladdress".$j;
+            DB::table('hotels')->insert([
+                'package_id' => $rand_package_code,
+                'hotel_category' =>$data->$type,
+                'hotel_name' => $data->$name,
+                'hotel_place' => $data->$address,
+                'created_at' => now(),
+                'updated_at' => now()
+            ]);    
+        }
         
     }
 
