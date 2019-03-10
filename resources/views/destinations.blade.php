@@ -45,6 +45,9 @@
 					<button type="submit" class="btn btn-outline-secondary mt-4" id="btn_add">Add</button>
 				</form>
 			</div>
+			<div class="col-12 mt-4">
+				<a href="/destination-all/view" class="float-right btn btn-outline-primary">View Destinations and Subdestinations</a>
+			</div>
 		</div>
 	</div>
 @endsection

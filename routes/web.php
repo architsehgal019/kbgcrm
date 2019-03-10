@@ -29,3 +29,8 @@ Route::post('/travelpackages/add', 'TravelpackageController@store');
 
 Route::get('/testimonial', 'TestimonialController@index');
 Route::post('/testimonial/add', 'TestimonialController@store');
+
+Route::get('/team', 'TeamController@index');
+Route::post('/team/add', 'TeamController@store');
+
+Route::get('/destination-all/view', 'DestinationviewController@view');
