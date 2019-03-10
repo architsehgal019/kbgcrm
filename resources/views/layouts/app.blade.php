@@ -81,6 +81,9 @@
                                 <span>General</span>
                             </li>
                             <li class="sidebar-dropdown">
+                                <a href="/aboutus">About Us</a>   
+                            </li>
+                            <li class="sidebar-dropdown">
                                 <a href="/destination">Destination</a>   
                             </li>
                             <li class="sidebar-dropdown">

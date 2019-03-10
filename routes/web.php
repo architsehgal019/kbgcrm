@@ -34,3 +34,6 @@ Route::get('/team', 'TeamController@index');
 Route::post('/team/add', 'TeamController@store');
 
 Route::get('/destination-all/view', 'DestinationviewController@view');
+
+Route::get('/aboutus', 'AboutController@index');
+Route::post('/aboutus/update', 'AboutController@update');
