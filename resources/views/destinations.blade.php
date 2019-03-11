@@ -46,7 +46,7 @@
 				</form>
 			</div>
 			<div class="col-12 mt-4">
-				<a href="/destination-all/view" class="float-right btn btn-outline-primary">View Destinations and Subdestinations</a>
+				<a href="/destination/view" class="float-right btn btn-outline-primary">View Destinations and Subdestinations</a>
 			</div>
 		</div>
 	</div>
