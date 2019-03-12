@@ -18,6 +18,9 @@
 					<button class="btn btn-outline-secondary mt-4" type="submit">Add Team Member</button>
 				</form>
 			</div>
+			<div class="col-12">
+				<a href="/team/view" class="float-right btn btn-outline-primary">View Team</a>
+			</div>
 		</div>
 	</div>
 @endsection

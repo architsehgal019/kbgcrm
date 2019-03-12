@@ -33,6 +33,10 @@ Route::post('/testimonial/add', 'TestimonialController@store');
 Route::get('/team', 'TeamController@index');
 Route::post('/team/add', 'TeamController@store');
 
+Route::get('/team/view', 'TeamviewController@index');
+Route::post('/team/update', 'TeamviewController@update');
+Route::get('/team/delete/{id}', 'TeamviewController@delete');
+
 Route::get('/destination/view', 'DestinationviewController@index');
 Route::post('/destination/update', 'DestinationviewController@update');
 Route::get('/destination/delete/{id}', 'DestinationviewController@delete');

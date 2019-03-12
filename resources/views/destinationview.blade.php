@@ -23,7 +23,6 @@
 								</td>
 								<td>
 									<i class="fa fa-edit" data-toggle="modal" role="button" data-target="#exampleModal{{$alldes->id}}"></i>
-									<i class="fa fa-trash ml-3"></i>
 								</td>
 							</tr>
 								@empty{{''}}
