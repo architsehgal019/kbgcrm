@@ -52,6 +52,7 @@ class DestinationController extends Controller
             'created_at'=>now(),
             'updated_at'=>now(),
             'name'=>$data->destination_name,
+            'popular' => $data->popular_destination,
         ]);
     }
 

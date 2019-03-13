@@ -7,6 +7,6 @@ use DB;
 class Destination extends Model
 {
     protected $fillable=[
-    	'name', 'bannerimg',
+    	'name', 'bannerimg', 'popular',
     ];
 }

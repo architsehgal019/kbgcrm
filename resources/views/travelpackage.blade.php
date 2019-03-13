@@ -106,23 +106,37 @@
 		  	<div class="tab-pane fade" id="pills-hotels" role="tabpanel" aria-labelledby="pills-hotels-tab">
 		  		<div class="container">
 		  			<div class="row">
-		  				<div class="col-12">
-		  					<div id = "hotel">
-			  					<label style="margin-top:5%;">Choose Hotel Category</label>
-			  					<select class="form-control w-50" id="hoteltype1" name="hoteltype1">
-			  						<option value="0">Choose</option>
-			  						<option value="deluxe">Deluxe</option>
-			  						<option value="luxury">Luxury</option>
-			  						<option value="premium">Premium</option>
-			  						<option value="standard">Standard</option>
-			  					</select>
-			  					<label class="mt-3">Hotel Name</label>
-			  					<input type="text" name="hotelname1" id="hotelname1" class="form-control w-50" aria-label="hotel name" placeholder="Hotel Name">
-			  					<label class="mt-3">Place</label>
-			  					<input type="text" name="hoteladdress1" id = "hoteladdress1" class="form-control w-50" aria-label="Hotel Address" placeholder="Hotel Address">
-			  				</div>
-			  				<a href="#" id="addhotel" class="float-right mt-4 btn btn-outline-primary">Add more</a>
-			  				<input type="hidden" name="hotelcount" id="hotelcount" value="1">
+		  				<div class="col-12" id="hotel_fields">
+		  					<label class="mt-3">Select no of rows</label>
+		  					<select class="form-control w-50" name="days" id="hotel_rows">
+										<option value="0">Choose</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+										<option value="9">9</option>
+										<option value="10">10</option>
+							</select>
+							<input type="hidden" value="" id="hidden_hotel" name="hidden_hotel">
+							<label class="mt-3">Enter hotel data in table</label>
+							<table class="table mt-4">
+								<thead class="thead-dark">
+									<tr>
+										<th>No. of Nights</th>
+										<th>Destination</th>
+										<th>Standard Hotel</th>
+										<th>Deluxe Hotel</th>
+										<th>Premium Hotel</th>
+										<th>Luxury Hotel</th>
+									</tr>
+								</thead>
+								<tbody id = "tbl_body">
+								</tbody>
+							</table>		
 		  				</div>
 		  			</div>
 		  		</div>
@@ -161,19 +175,32 @@
 			    	}
 		    });
 
-		    $('#addhotel').click(function(){
-		    	var count = $('#hotelcount').val();
-		    	count = parseInt(count)+1;
-		    	$('#hotelcount').val(count);
+		    $('#hotel_rows').change(function(){
+		    	$('#tbl_body').empty();
+		    	var j = $('#hotel_rows').val();
+		    	$('#hidden_hotel').val(j);
 
-		    	$('#hotel').append('<label style="margin-top:5%;">Choose Hotel Category</label>');
-		    	$('#hotel').append('<select class="form-control w-50" id="hoteltype'+count+'" name="hoteltype'+count+'"><option value="0">Choose</option><option value="deluxe">Deluxe</option><option value="premium">Premium</option><option value="standard">Standard</option></select>');
+		    	for(var m = 1; m<=j; m++)
+		    	{
+		    		var k = 0;
+		    		$('#tbl_body').append('<tr>');
+		    		++k;
+		    		$('#tbl_body').append('<td><input type="text" name="hotel'+m+'a'+k+'" class="form-control" placeholder="Enter no. of nights" value=""></td>');
+		    		++k;
+		    		$('#tbl_body').append('<td><input type="text" name="hotel'+m+'a'+k+'" class="form-control" placeholder="Enter Destination" value=""></td>');
+		    		++k;
+		    		$('#tbl_body').append('<td><input type="text" name="hotel'+m+'a'+k+'" class="form-control" placeholder="Enter hotel" value=""></td>');
+		    		++k;
+		    		$('#tbl_body').append('<td><input type="text" name="hotel'+m+'a'+k+'" class="form-control" placeholder="Enter hotel" value=""></td>');
+		    		++k;
 
-		    	$('#hotel').append('<label class="mt-3">Hotel Name</label>');
-		    	$('#hotel').append('<input type="text" name="hotelname'+count+'" id="hotelname'+count+'" class="form-control w-50" aria-label="hotel name" placeholder="Hotel Name">');
+		    		$('#tbl_body').append('<td><input type="text" name="hotel'+m+'a'+k+'" class="form-control" placeholder="Enter hotel" value=""></td>');
+		    		++k;
+		    		
+		    		$('#tbl_body').append('<td><input type="text" name="hotel'+m+'a'+k+'" class="form-control" placeholder="Enter hotel" value=""></td></tr>');
+		    		
+		    	}
 
-		    	$('#hotel').append('<label class="mt-3">Place</label>');
-		    	$('#hotel').append('<input type="text" name="hoteladdress'+count+'" id = "hoteladdress'+count+'" class="form-control w-50" aria-label="Hotel Address" placeholder="Hotel Address">');
 		    });
 		</script>
 @endsection

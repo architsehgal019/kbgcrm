@@ -48,6 +48,10 @@
 						</div>
 						<div class="modal-body">
 							<input type="text" name="destination_name" class="form-control" value="{{$alldes->name}}">
+							<div class="form-check mt-4 mb-4">
+								<input type="checkbox" name="popular_destination" class="form-check-input" id="popular_destination" value="1" {{$alldes->popular == '1'?'checked':''}}>
+								<label class="form-check-label ml-4" for="popular_destination">Add to Popular Destination</label>
+							</div>
 							<label class="mt-4">Banner Image</label>
 							<input type="file" name="destination_img" class="show-preview" accept="image/*" value="">
 							<img src="/crm/uploads/{{$alldes->bannerimg}}" class="w-50">

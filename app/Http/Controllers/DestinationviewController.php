@@ -89,6 +89,7 @@ class DestinationviewController extends Controller
             ->update([
                 'name' => $request->destination_name,
                 'bannerimg' => $file_name,
+                'popular' => $request->popular_destination,
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);

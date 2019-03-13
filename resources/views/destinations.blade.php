@@ -15,6 +15,11 @@
 					</div>
 					<label class="mt-4">Choose Destination</label>
 					<input type="file" name="bannerimg_url" class="show-preview" accept="image/*" data-target="#banner_img" value="">
+				
+					<div class="form-check mt-4 mb-4">
+						<input type="checkbox" name="popular_destination" class="form-check-input" id="popular_destination" value="1">
+						<label class="form-check-label ml-4" for="popular_destination">Add to Popular Destination</label>
+					</div>
 
 					{{csrf_field()}}
 					<button class="btn btn-outline-secondary mt-4" type="submit">Add</button>

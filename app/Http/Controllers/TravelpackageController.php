@@ -92,16 +92,32 @@ class TravelpackageController extends Controller
             'updated_at' => now(),
         ]);
 
-        for($j=1; $j<=$data->hotelcount; $j++)
-        {
-            $type = "hoteltype".$j;
+        for($j=1; $j<=$data->hidden_hotel; $j++)
+        {   
+            $k=0;
+            ++$k;
+            $hotelnights = "hotel".$j."a".$k;
+            ++$k;
+            $hoteldes = "hotel".$j."a".$k;
+            ++$k;
+            $hotelstandard = "hotel".$j."a".$k;
+            ++$k;
+            $hoteldeluxe = "hotel".$j."a".$k;
+            ++$k;
+            $hotelpremium = "hotel".$j."a".$k;
+            ++$k;
+            $hotelluxury = "hotel".$j."a".$k;
+
             $name = "hotelname".$j;
             $address = "hoteladdress".$j;
             DB::table('hotels')->insert([
                 'package_id' => $rand_package_code,
-                'hotel_category' =>$data->$type,
-                'hotel_name' => $data->$name,
-                'hotel_place' => $data->$address,
+                'no_of_nights' => $data->$hotelnights,
+                'hotel_destination' => $data->$hoteldes,
+                'standard_hotel' => $data->$hotelstandard,
+                'deluxe_hotel' => $data->$hoteldeluxe,
+                'premium_hotel' => $data->$hotelpremium,
+                'luxury_hotel' => $data->$hotelluxury,
                 'created_at' => now(),
                 'updated_at' => now()
             ]);    
