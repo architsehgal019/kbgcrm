@@ -95,6 +95,9 @@
                             <li class="sidebar-dropdown">
                                 <a href="/team">Team</a>
                             </li>
+                            <li class="sidebar-dropdown">
+                                <a href="/offers">Special Offers</a>
+                            </li>
                             <li class="header-menu"> 
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         Logout

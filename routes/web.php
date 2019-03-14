@@ -43,3 +43,8 @@ Route::get('/destination/delete/{id}', 'DestinationviewController@delete');
 
 Route::get('/aboutus', 'AboutController@index');
 Route::post('/aboutus/update', 'AboutController@update');
+
+Route::get('/offers', 'BannerController@index');
+Route::post('/offers/add', 'BannerController@store');
+Route::post('/offers/update', 'BannerController@update');
+Route::get('/offers/delete/{id}', 'BannerController@delete');
