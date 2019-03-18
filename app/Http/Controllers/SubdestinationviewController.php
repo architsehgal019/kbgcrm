@@ -72,12 +72,23 @@ class SubdestinationviewController extends Controller
      */
     public function update(Request $request)
     {
-        
+        if($request->hasFile('subdestination_img'))
+        {
+            $cover = $request->file('subdestination_img');
+            $extension = $cover->getClientOriginalExtension();
+            Storage::disk('public')->put($cover->getFilename().'.'.$extension, File::get($cover));    
+            $file_name = $cover->getFilename().'.'.$extension;
+        }
+        else{
+            $file_name = $request->imgname;
+        }
+
         DB::table('subdestinations')->where('id',$request->id)
             ->update([
                 'destination_id' => $request->destination,
                 'subdestination_name' => $request->subdestination_name,
                 'popular' => $request->popular_destination,
+                'subdestinationimg' => $file_name,
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);

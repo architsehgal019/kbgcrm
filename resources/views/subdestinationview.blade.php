@@ -48,7 +48,7 @@
 	@forelse($subdestination as $sub)
 		<div class="modal fade" id="exampleModal{{$sub->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModal">
 			<div class="modal-dialog modal-dialog-centered" role="document">
-				<form action="/subdestination/update" method="post" class="w-100">
+				<form action="/subdestination/update" method="post" class="w-100" enctype="multipart/form-data">
 					<div class="modal-content">
 						<div class="modal-header">
 							<h5 class="modal-title" id="exampleModalLabel">Edit Subdestination</h5>
@@ -70,6 +70,13 @@
 								<input type="checkbox" name="popular_destination" class="form-check-input" id="popular_destination" value="1" {{$sub->popular == '1'?'checked':''}}>
 								<label class="form-check-label ml-4" for="popular_destination">Add to Popular Destination</label>
 							</div>
+
+							<label class="mt-4">Sub-Destination Image</label>
+							<input type="file" name="subdestination_img" class="show-preview" accept="image/*" value="">
+
+							<img src="/crm/uploads/{{$sub->subdestinationimg}}" class="w-50">
+							<input type="hidden" value="{{$sub->subdestinationimg}}" name="imgname">
+
 							<input type="hidden" name="id" value="{{$sub->id}}">
 						</div>
 						<div class="modal-footer">

@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Subdestination;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+use Auth;
+use DateTime;
 
 class SubdestinationController extends Controller
 {
@@ -37,10 +42,15 @@ class SubdestinationController extends Controller
 
     protected function storeAction($data)
     {
+        $cover = $data->file('subdestimg_url');
+        $extension = $cover->getClientOriginalExtension();
+        Storage::disk('public')->put($cover->getFilename().'.'.$extension, File::get($cover));
+
         Subdestination::insert([
             'destination_id' => $data->subdestination,
             'subdestination_name'=>$data->subdestination_name,
             'popular' => $data->popular_destination,
+            'subdestinationimg' => $cover->getFilename().'.'.$extension,
             'created_at'=>now(),
             'updated_at'=>now(),
         ]);
