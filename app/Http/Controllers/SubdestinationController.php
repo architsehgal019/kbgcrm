@@ -40,6 +40,7 @@ class SubdestinationController extends Controller
         Subdestination::insert([
             'destination_id' => $data->subdestination,
             'subdestination_name'=>$data->subdestination_name,
+            'popular' => $data->popular_destination,
             'created_at'=>now(),
             'updated_at'=>now(),
         ]);

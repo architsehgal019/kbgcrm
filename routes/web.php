@@ -48,3 +48,7 @@ Route::get('/offers', 'BannerController@index');
 Route::post('/offers/add', 'BannerController@store');
 Route::post('/offers/update', 'BannerController@update');
 Route::get('/offers/delete/{id}', 'BannerController@delete');
+
+Route::get('/subdestination/view', 'SubdestinationviewController@index');
+Route::post('/subdestination/update', 'SubdestinationviewController@update');
+Route::get('/subdestination/delete/{id}', 'SubdestinationviewController@delete');

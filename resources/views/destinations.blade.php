@@ -16,11 +16,6 @@
 					<label class="mt-4">Choose Destination</label>
 					<input type="file" name="bannerimg_url" class="show-preview" accept="image/*" data-target="#banner_img" value="">
 				
-					<div class="form-check mt-4 mb-4">
-						<input type="checkbox" name="popular_destination" class="form-check-input" id="popular_destination" value="1">
-						<label class="form-check-label ml-4" for="popular_destination">Add to Popular Destination</label>
-					</div>
-
 					{{csrf_field()}}
 					<button class="btn btn-outline-secondary mt-4" type="submit">Add</button>
 				</form>
@@ -46,12 +41,17 @@
 						</div>
 						<input type="text" name="subdestination_name" id="subdestination_name" class="form-control" aria-label="Subdestination" placeholder="Subdestination name">
 					</div>
+					<div class="form-check mt-4 mb-4">
+						<input type="checkbox" name="popular_destination" class="form-check-input" id="popular_destination" value="1">
+						<label class="form-check-label ml-4" for="popular_destination">Add to Popular Destination</label>
+					</div>
 					{{csrf_field()}}
 					<button type="submit" class="btn btn-outline-secondary mt-4" id="btn_add">Add</button>
 				</form>
 			</div>
 			<div class="col-12 mt-4">
-				<a href="/destination/view" class="float-right btn btn-outline-primary">View Destinations and Subdestinations</a>
+				<a href="/destination/view" class="float-right ml-2 btn btn-outline-primary">View Destinations</a>
+				<a href="/subdestination/view" class="float-right btn btn-outline-primary">View Subdestinations</a>
 			</div>
 		</div>
 	</div>
