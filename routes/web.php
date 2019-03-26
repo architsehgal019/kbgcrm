@@ -52,3 +52,13 @@ Route::get('/offers/delete/{id}', 'BannerController@delete');
 Route::get('/subdestination/view', 'SubdestinationviewController@index');
 Route::post('/subdestination/update', 'SubdestinationviewController@update');
 Route::get('/subdestination/delete/{id}', 'SubdestinationviewController@delete');
+
+Route::get('/testimonial/view', 'TestimonialviewController@index');
+Route::post('/testimonial/update', 'TestimonialviewController@update');
+Route::get('/testimonial/delete/{id}', 'TestimonialviewController@delete');
+
+Route::get('/blogs', 'BlogController@index');
+Route::post('/blogs/add', 'BlogController@store');
+
+Route::get('/travelpackages/view', 'PackageviewController@index');
+Route::get('/travelpackages/edit/{id}', 'PackageeditController@index');

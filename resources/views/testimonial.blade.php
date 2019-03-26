@@ -21,6 +21,9 @@
 					<button class="btn btn-outline-secondary mt-4" type="submit">Add Testimonial</button>
 				</form>
 			</div>
+			<div class="col-12 mt-4">
+				<a href="/testimonial/view" class="float-right btn btn-outline-primary">View Testimonials</a>
+			</div>
 		</div>
 	</div>
 @endsection

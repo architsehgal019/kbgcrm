@@ -60,6 +60,7 @@ class TravelpackageController extends Controller
             'nights' => $data->nights,
             'price' => $data->price,
             'package_img' => $cover->getFilename().'.'.$extension,
+            'honeymoon_package' => $data->honeymoon_package,
             'created_at' => now(),
             'updated_at' => now(),
             'alt_text' => $data->alt_txt,
